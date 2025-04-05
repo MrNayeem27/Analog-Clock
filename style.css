@@ -1,17 +1,122 @@
 body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #222;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background-color: #e8e8e8;
+}
+
+.clock-container {
+    padding: 20px;
+    background-color: #d1d1d1;
+    border-radius: 20px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .clock {
-    font-size: 3rem;
-    background: #333;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #005f40 0%, #004d33 100%);
+    border-radius: 50%;
+    border: 12px solid #bda06c; /* Gold-like bezel */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 0 0 5px #a88e5f; /* Inner shadow and outer ring */
+    position: relative;
+    color: #e1d4b7; /* Off-white/light gold for markers */
+}
+
+.branding {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+.markers .marker {
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background-color: #e1d4b7; /* Light gold */
+    left: 50%;
+    top: 5px;
+    transform-origin: 50% 155px; /* Center X, (Radius - Top Offset) Y */
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+.markers .marker-1 { transform: translateX(-50%) rotate(30deg); }
+.markers .marker-2 { transform: translateX(-50%) rotate(60deg); }
+.markers .marker-3 { transform: translateX(-50%) rotate(90deg); width: 4px; height: 18px; background-color: #f0e4c9;} /* 3 o'clock */
+.markers .marker-4 { transform: translateX(-50%) rotate(120deg); }
+.markers .marker-5 { transform: translateX(-50%) rotate(150deg); }
+.markers .marker-6 { transform: translateX(-50%) rotate(180deg); width: 4px; height: 18px; background-color: #f0e4c9;} /* 6 o'clock */
+.markers .marker-7 { transform: translateX(-50%) rotate(210deg); }
+.markers .marker-8 { transform: translateX(-50%) rotate(240deg); }
+.markers .marker-9 { transform: translateX(-50%) rotate(270deg); width: 4px; height: 18px; background-color: #f0e4c9;} /* 9 o'clock */
+.markers .marker-10 { transform: translateX(-50%) rotate(300deg); }
+.markers .marker-11 { transform: translateX(-50%) rotate(330deg); }
+.markers .marker-12 { transform: translateX(-50%) rotate(360deg); width: 4px; height: 18px; background-color: #f0e4c9;} /* 12 o'clock */
+
+
+.center-point {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: #bda06c; /* Gold */
+    border: 2px solid #a88e5f;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+.hands {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: #e1d4b7; /* Light gold hands */
+    transform-origin: bottom center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 4px 4px 0 0; /* Slightly rounded top */
+}
+
+.hour {
+    width: 8px;
+    height: 75px;
+    margin-left: -4px; /* Half of width */
+    background-color: #f0e4c9; /* Slightly brighter gold */
+    z-index: 8;
+    border-radius: 6px 6px 0 0;
+}
+
+.minute {
+    width: 6px;
+    height: 105px;
+    margin-left: -3px; /* Half of width */
+    z-index: 9;
+}
+
+.second {
+    width: 2px;
+    height: 120px;
+    margin-left: -1px; /* Half of width */
+    background-color: #d4af37; /* Brighter gold for second hand */
+    z-index: 10;
+    border-radius: 2px; /* Make it thinner */
 }
